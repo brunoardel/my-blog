@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: brunoardel/blog-gatsby
+  repo: brunoardel/my-blog
   branch: master
   site_domain: brunoardel.netlify.app
 
