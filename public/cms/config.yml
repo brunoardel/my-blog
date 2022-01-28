@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: brunoardel/my-blog
-  base_url: https://brunoardel.netlify.app/
+  base_url: https://brunoardel.vercel.app/
   auth_endpoint: api/auth/
 
 media_folder: public/assets/img

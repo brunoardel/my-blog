@@ -11,12 +11,12 @@ const AboutPage = () => (
       openGraph={{
         type: 'website',
         locale: 'pt_BR',
-        url: 'https://brunoardel.netlify.app/assets/img/blog-cover.png',
+        url: 'https://brunoardel.vercel.app/assets/img/blog-cover.png',
         site_name: 'Bruno Ardel',
         title: 'Bruno Ardel',
         images: [
           {
-            url: 'https://brunoardel.netlify.app/assets/img/blog-cover.png',
+            url: 'https://brunoardel.vercel.app/assets/img/blog-cover.png',
             width: 1200,
             height: 630,
             alt: 'Bruno Ardel Blog'

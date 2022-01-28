@@ -9,7 +9,7 @@ export const BLOG_AUTHOR = 'Bruno Ardel'
 
 export const BLOG_AUTHOR_LINK = 'https://twitter.com/brunohardel'
 
-export const BLOG_URL = 'https://brunoardel.netlify.com'
+export const BLOG_URL = 'https://brunoardel.vercel.com'
 
 export const BLOG_AUTHOR_POSITION = 'Software Engineer'
 

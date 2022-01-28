@@ -2,7 +2,7 @@ const DefaultSEO = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://brunoardel.netlify.app/',
+    url: 'https://brunoardel.vercel.app/',
     site_name: 'Bruno Ardel'
   },
   twitter: {

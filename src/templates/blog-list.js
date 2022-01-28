@@ -42,7 +42,7 @@ const BlogList = ({ posts }) => {
         openGraph={{
           images: [
             {
-              url: 'https://brunoardel.netlify.app/assets/img/blog-cover.png',
+              url: 'https://brunoardel.vercel.app/assets/img/blog-cover.png',
               width: 1200,
               height: 630,
               alt: 'Bruno Ardel Blog'
