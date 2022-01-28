@@ -1,15 +1,15 @@
-import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+import Image from 'next/image'
 
 import * as S from './styled'
 
 const Avatar = () => {
   return (
     <S.AvatarWrapper>
-      <StaticImage
-        src="../../../static/assets/img/profile-photo.png"
-        alt="John Doe Avatar"
-        placeholder="blurred"
+      <Image
+        src="/assets/img/profile-photo.png"
+        alt="Uma foto minha vestido com uma camise do Star Wars e um blazer"
+        width={64}
+        height={64}
       />
     </S.AvatarWrapper>
   )

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import transitions from './transitions'
 
 export const PostHeader = styled.header`
   color: var(--postColor);
@@ -36,6 +37,22 @@ export const PostDescription = styled.h2`
     line-height: 1.3;
     padding: 0 1rem;
   `}
+`
+
+export const ButtonBack = styled.a`
+  color: var(--texts);
+  display: flex;
+  text-decoration: none;
+  margin: 0 0 1.5rem 1.5rem;
+  transition: ${transitions.COLOR};
+
+  ${media.lessThan('large')`
+    margin: 0 0 1.5rem 1rem;
+  `}
+
+  &:hover {
+    color: var(--highlight);
+  }
 `
 
 export const PostDate = styled.p`
@@ -115,6 +132,20 @@ export const MainContent = styled.section`
     }
   }
 
+  code {
+    background: #2d2d2d;
+    color: white;
+    padding: 0.1em;
+    border-radius: 0.3em;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  }
+
+  pre > code {
+    white-space: pre;
+  }
+
   img {
     display: block;
     width: auto;
@@ -125,6 +156,10 @@ export const MainContent = styled.section`
   iframe {
     padding: 0 1.6rem 1.6rem;
     width: 100%;
+
+    ${media.greaterThan('large')`
+      height: 490px;
+    `}
 
     ${media.lessThan('large')`
       padding: 0 1rem;
@@ -195,33 +230,6 @@ export const MainContent = styled.section`
     font-weight: 700;
   }
 
-  .gatsby-resp-image-background-image {
-    z-index: 2;
-    opacity: 1 !important;
-  }
-
-  .gatsby-resp-image-image {
-    box-shadow: none !important;
-    transition: opacity 0.2s;
-
-    &.lazyload {
-      opacity: 0;
-    }
-
-    &.lazyloaded {
-      opacity: 1;
-      z-index: 3;
-    }
-  }
-
-  .gatsby-highlight {
-    padding: 0 1.6rem 1.6rem;
-
-    ${media.lessThan('large')`
-      padding: 0;
-    `}
-  }
-
   .instagram-media {
     margin: 1rem auto !important;
   }
@@ -238,6 +246,24 @@ export const MainContent = styled.section`
 
     &:hover {
       opacity: 0.8;
+    }
+  }
+
+  .anchor {
+    position: relative;
+    border: 0;
+    color: var(--postColor);
+    text-decoration: none;
+
+    &:before {
+      content: '#';
+      position: absolute;
+      left: -35px;
+      opacity: 0;
+    }
+
+    &:hover:before {
+      opacity: 1;
     }
   }
 `

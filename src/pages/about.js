@@ -1,41 +1,69 @@
-import React from 'react'
+import { NextSeo } from 'next-seo'
+import SocialLinks from 'components/SocialLinks'
 
-import Layout from '../components/Layout/'
-import SEO from '../components/Seo'
-import SocialLinks from '../components/SocialLinks'
-
-import { MainContent } from '../styles/base'
+import { MainContent } from 'styles/base'
 
 const AboutPage = () => (
-  <Layout>
-    <SEO
-      title="Sobre mim"
+  <>
+    <NextSeo
+      title="Sobre mim | Bruno Ardel"
       description="Saiba um pouco mais sobre o desenvolvedor por trás deste blog."
+      openGraph={{
+        type: 'website',
+        locale: 'pt_BR',
+        url: 'https://brunoardel.netlify.app/assets/img/blog-cover.png',
+        site_name: 'Bruno Ardel',
+        title: 'Bruno Ardel',
+        images: [
+          {
+            url: 'https://brunoardel.netlify.app/assets/img/blog-cover.png',
+            width: 1200,
+            height: 630,
+            alt: 'Bruno Ardel Blog'
+          }
+        ]
+      }}
     />
     <MainContent>
       <h1>Sobre mim</h1>
       <p>
-        Meu nome é Bruno Ardel, nasci em São Paulo - SP, morando desde 2003 em
-        Jundiaí - SP. Entusiasta de tecnologias Front-End.
+        Meu nome é Bruno, nasci em São Paulo - SP, morando desde 2003 em Jundiaí
+        - SP. Entusiasta de tecnologias Front-End.
       </p>
+
       <p>
-        Já passei por empresas como{' '}
+        Comecei na tecnologia em 2011 trabalhando como analista de suporte na{' '}
         <a
-          href="http://www.bematech.com.br/"
+          href="https://www.bematech.com.br/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Bematech
-        </a>
-        ,{' '}
+        </a>{' '}
+        (comprada pela{' '}
         <a
           href="https://www.totvs.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Totvs
-        </a>
-        ,{' '}
+        </a>{' '}
+        em 2017). No dia a dia era muito comum estar atendendo um chamado e ter
+        que chamar um desenvolvedor para ajudar, e lá minha um dev com seu
+        notebook mexendo em um monte de código que eu não entendi absolutamente
+        nada, mas eu queria! Eu queria construir coisas, como aqueles caras
+        construiam!
+      </p>
+      <p>
+        Em 2014 comecei a estudar{' '}
+        <strong>Gestão de Tecnologia de Informação</strong>, mas é uma area
+        muito burocrática e eu queria <strong>código</strong> (talvez um dia eu
+        volte em formato Pós-Graduação). Em 2015 troquei o curso para{' '}
+        <strong>Analise e Desenvolvimento de Sistema</strong>, aí sim, melhorou
+        bastante!
+      </p>
+      <p>
+        Trabalhei em algumas empresas como{' '}
         <a
           href="https://www.trinitygroup.com.br/"
           target="_blank"
@@ -50,25 +78,40 @@ const AboutPage = () => (
           rel="noopener noreferrer"
         >
           Reebok
-        </a>{' '}
-        e{' '}
-        <a href="https://moss.earth/" target="_blank" rel="noopener noreferrer">
-          Moss Earth
         </a>
-        . Cursei <strong>Analise e Desenvolvimento de Sistema</strong> na
-        Universidade Paulista, finalizado em 2018, mas antes disso, em 2011
-        iniciei o curso de <strong>Gestão de Tecnologia de Informação</strong>{' '}
-        na Unip, porem, o curso era muito pouco mão na massa e muito mais
-        administrativo, aprendi coisas legais, mas eu queria mais código. Talvez
-        um dia eu volte para esse assunto em formato de pós-graduação.
+        , {''}
+        <a
+          href="https://artit.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Art IT
+        </a>
+        , {''}
+        <a
+          href="https://claro.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Claro
+        </a>
+        {''} e {''}
+        <a
+          href="https://www.galgosistemas.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Galgo
+        </a>
+        .
       </p>
       <p>
-        Eu adoro trabalhar em equipe e sou bem comunicativo e criativo. No meu
-        tempo livre, gosto de ajudar amigos em alguns grupos de desenvolvimento
-        no WhatsApp e Slack.
+        No meu tempo livre gosto de ajudar amigos em alguns grupos de
+        desenvolvimento no WhatsApp e Slack, caminhar ouvindo podcasts,
+        encontrar meu amigos e fazer churrasco fazendo música.
       </p>
       <p>
-        Tambem sou DJ e produtor de música eletrônica (quando a criatividade
+        A, tambem sou DJ e produtor de música eletrônica (quando a criatividade
         músical resolve aparecer{' '}
         <span role="img" aria-labelledby="emoji smiling">
           &#128514;
@@ -125,7 +168,7 @@ const AboutPage = () => (
 
       <SocialLinks hideStyle />
     </MainContent>
-  </Layout>
+  </>
 )
 
 export default AboutPage

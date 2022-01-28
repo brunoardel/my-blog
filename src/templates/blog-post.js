@@ -1,61 +1,61 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import Prism from 'prismjs'
 
-import Layout from '../components/Layout/'
-import SEO from '../components/Seo'
-import RecommendedPosts from '../components/RecommendedPosts'
+import { useEffect } from 'react'
+import Link from 'next/link'
+import { NextSeo } from 'next-seo'
+
+import { timeToRead } from 'lib/utils'
+
+import RecommendedPosts from 'components/RecommendedPosts'
 
 import {
   PostHeader,
   PostTitle,
   PostDescription,
   PostDate,
-  MainContent
-} from '../styles/base'
+  MainContent,
+  ButtonBack
+} from 'styles/base'
 
-const BlogPost = props => {
-  const post = props.data.markdownRemark
-  const next = props.pageContext.next
-  const previous = props.pageContext.previous
+const BlogPost = ({ post }) => {
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [post])
 
   return (
-    <Layout>
-      <SEO
-        title={post.frontmatter.title}
+    <>
+      <NextSeo
+        title={`${post.frontmatter.title} - Bruno Ardel`}
         description={post.frontmatter.description}
-        image={`https://willianjusten.com.br${post.frontmatter.image}`}
+        openGraph={{
+          url: `https://brunoardel.vercel.app/${post.slug}`,
+          title: `${post.frontmatter.title} - Bruno Ardel`,
+          description: post.frontmatter.description,
+          images: [
+            {
+              url: `https://og-image-service.willianjusten.com.br/${post.frontmatter.title}.png`,
+              alt: `${post.frontmatter.title}`
+            }
+          ]
+        }}
       />
       <PostHeader>
+        <Link href="/" passHref>
+          <ButtonBack>← Voltar na listagem</ButtonBack>
+        </Link>
+
         <PostDate>
-          {post.frontmatter.date} • {post.timeToRead} min de leitura
+          {post.frontmatter.date} • {timeToRead(post.content)}
         </PostDate>
         <PostTitle>{post.frontmatter.title}</PostTitle>
         <PostDescription>{post.frontmatter.description}</PostDescription>
       </PostHeader>
       <MainContent>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </MainContent>
-      <RecommendedPosts next={next} previous={previous} />
-    </Layout>
+      <RecommendedPosts next={post.nextPost} previous={post.prevPost} />
+    </>
   )
 }
 
 export default BlogPost
-
-export const query = graphql`
-  query Post($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      fields {
-        slug
-      }
-      frontmatter {
-        date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-        image
-        description
-        title
-      }
-      timeToRead
-    }
-  }
-`

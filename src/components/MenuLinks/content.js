@@ -5,11 +5,11 @@ const links = [
   },
   {
     label: 'Sobre Mim',
-    url: '/about/'
+    url: '/about'
   },
   {
     label: 'Séries',
-    url: '/series/'
+    url: '/series'
   }
 ]
 
