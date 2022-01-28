@@ -21,14 +21,5 @@ module.exports = {
       { source: '/page/:slug*', destination: 'https://brunoardel.vercel.app/' }
     ]
   },
-  async redirects() {
-    return [
-      {
-        source: '/teste',
-        destination: 'https://brunoardel.vercel.app/',
-        permanent: true
-      }
-    ]
-  },
   images: { domains: ['pbs.twimg.com'] }
 }
