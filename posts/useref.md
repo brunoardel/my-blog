@@ -9,7 +9,7 @@ tags:
   - ReactJS
 categories: []
 ---
-Esse hook é o mais usado do React é importante que você saiba como e por que utiliza-lo.
+Esse hook é o mais usado do React e é importante que você saiba como e por que utiliza-lo.
 
 Vamos a uma explicação muito simples. Um state armazena um valor, um objeto, um array, qualquer tipo de dado, sempre que é alterado gera uma nova renderização. 
 
@@ -48,7 +48,7 @@ Linha 8: Estamos retornando um JSX
 
 Linha 10: Aqui estamos mostrando nosso state value.
 
-Linha 11: Estamos inserindo um botão com a função que vai alterar nosso state. A função onClick esta executando uma função anônima que vai executar setValue. Essa função anonima é usado por que se colocarmos nosso setValue direto no onClick ela será executada assim que nosso app renderizar, e não é o que nos queremos, queremos que setValue seja executado somente no click do botão. 
+Linha 11: Estamos inserindo um botão com a função que vai alterar nosso state. A função onClick esta executando uma função anônima que vai executar setValue. Essa função anônima é usado por que se colocarmos nosso setValue direto no onClick ela será executada assim que nosso app renderizar, e não é o que nos queremos, queremos que setValue seja executado somente no click do botão. 
 
 ![useState Exemplo 2](/assets/img/usestate-2.png "useState Exemplo 2")
 
