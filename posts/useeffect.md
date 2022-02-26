@@ -11,7 +11,11 @@ categories: []
 ---
 Esse hook é o segundo hook mais usado do React e é importante que você saiba como e por que utiliza-lo.
 
-É mais comumente usado para realizar chamadas a API ou também gerando efeitos colaterais de alteração de state. Escrevendo parece complicado né? Mas calma, é realmente simples. A estrutura dele é essa:
+É mais comumente usado para realizar chamadas a API. 
+
+Ele é sempre executado depois que todo o JSX do nosso componente é renderizado, sendo assim, a montagem do nosso código na tela fica mais rápida já que estamos separando ele em 2 partes, a primeira é a montagem de todo o componente e a segunda é a chamada a API.
+
+A estrutura dele é essa:
 
 ```javascript
 useEffect(() => {
@@ -23,24 +27,30 @@ A declaração do useEffect, ele recebe uma função e possui um array de depend
 
 Vamos ao exemplo:
 
-```
-
-```
-
-![useState Exemplo 1](/assets/img/usestate-1.png "useState Exemplo 1")
-
 ```javascript
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [value, setValue] = useState('Valor inicial');
+  const [digimons, setDigimons] = useState([]);
 
-  console.log('renderizou!');
+  useEffect(() => {
+    fetch('https://digimon-api.herokuapp.com/api/digimon')
+      .then((response) => response.json())
+      .then((data) => setDigimons(data));
+  }, []);
 
   return (
     <div className="App">
-      <h4>{value}</h4>
-      <button onClick={() => setValue('Novo valor')}>Alterar</button>
+      <h4>Digimons</h4>
+
+      <ul>
+        {digimons.map((digimon) => (
+          <li key={digimon.name}>
+            <img src={digimon.img} alt={digimon.name} />
+            {digimon.name} - {digimon.level}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -48,22 +58,10 @@ function App() {
 export default App;
 ```
 
-Se você for iniciante, primeiramente, mantenha a calma, vou te explicar linha por linha!
+![useEffect Exemplo 1](/assets/img/useeffect-1.png "useEffect Exemplo 1")
 
-Linha 1: Estamos importando o hook useState do React.
+Estamos utilizando a Digimon API (leia mais em: <https://digimon-api.vercel.app/>). Sempre utilizo ela como exemplo pela simplicidade.
 
-Linha 3: Declaramos nossa função principal.
+Veja que dentro do useEffect estamos fazendo uma chamada a api, convertendo o retorno e jogando para o state.
 
-Linha 4: O useState nos fornece 2 posições de 1 array, sendo eles, a primeira posição é nosso state que armazena um valor, segunda posição é a função que altera esse valor. Caso você queira iniciar esse state com um valor, podemos passar para o hook assim: useState('Valor inicial').
-
-Linha 6: Coloquei no exemplo pra você perceber sempre que houver uma renderização.
-
-Linha 8: Estamos retornando um JSX
-
-Linha 10: Aqui estamos mostrando nosso state value.
-
-Linha 11: Estamos inserindo um botão com a função que vai alterar nosso state. A função onClick esta executando uma função anônima que vai executar setValue. Essa função anônima é usado por que se colocarmos nosso setValue direto no onClick ela será executada assim que nosso app renderizar, e não é o que nos queremos, queremos que setValue seja executado somente no click do botão. 
-
-![useState Exemplo 2](/assets/img/usestate-2.png "useState Exemplo 2")
-
-Percebeu que ao clicar no botão o valor foi alterado e nosso app renderizou novamente? Pois é. Agora vou aprendeu como utilizar useState!
+E dentro do retorno da nossa função principal APP estou criando uma limpa, percorrendo o array que esta no state digimons e criando um list item para cada objeto do array.
