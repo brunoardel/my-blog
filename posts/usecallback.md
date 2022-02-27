@@ -90,7 +90,6 @@ function App() {
 }
 
 export default App;
-
 ```
 
 Neste exemplo estou utilizando new Set() que nos permite adicionar somente elementos únicos. Leia mais em: <https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set>
@@ -108,6 +107,8 @@ Ou seja, temos 8 funções criadas nesta primeira execução.
 Agora clique 1x em cada um dos botões de incrementar dos componentes e veja a quantidade de funções criadas. São um total de 24.
 
 No nosso dia a dia de trabalho isso não chega a ser um problema por que as funções são leves, mas em determinado momento teremos funções complexas, pesadas, que processam suas props recebidas e podem levar algum tempo para processar atrasando as renderizações e a apresentação da nossa UI.
+
+E se tivessemos uma forma de recriar somente a função que recebeu uma prop diferente. Esse é o uso do useCallback e o array de dependências.
 
 Agora vamos adicionar o hook useCallback em nossas funções.
 
@@ -157,10 +158,11 @@ function App() {
 }
 
 export default App;
-
 ```
 
 Na primeira renderização temos o segundo alert mostrando 8 funções criadas, clicando 1x em cada botão incrementar temos o segundo alert mostrando 16, o que já é um avanço.
+
+Agora somente a função que receber uma prop nova diferente da atual será recriada, as demais não, já que o React faz a comparação dentre as props.
 
 Por fim, lembra do "custo"? Pois é, useCallback tem um custo para ser usado, esse custo é comparação das props atuais com as novas.
 
