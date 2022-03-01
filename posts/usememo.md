@@ -16,8 +16,6 @@ Aquele disclaimer básico:
 
 Vou usar um exemplo um pouco mais complexo que os anteriores, mas bem legal para entender o uso do useMemo e suas diferenças com memo.
 
-
-
 ## Exemplo
 
 Utilizei um exemplo que cria uma aplicação em que você seleciona um tipo de queijo e ela mostra qual tipo de vinho combina mais. 
@@ -115,7 +113,6 @@ export default function ParentComponent({
     </div>
   );
 }
-
 ```
 
 Depois crie uma pasta com nome utils e dentro crie um index.js com o código:
@@ -129,7 +126,6 @@ export default {
   MERLOT: 'Merlot',
   CABERNET: 'Cabernet Sauvignon',
 };
-
 ```
 
 Depois, na mesma pasta que seu App, crie o counts.js com o código:
@@ -151,7 +147,6 @@ export default function Counts() {
     </div>
   );
 }
-
 ```
 
 Agora vamos criar o button.js: 
@@ -167,7 +162,6 @@ export default function Button({ onClick, text }) {
     </button>
   );
 }
-
 ```
 
 Agora crie um novo componente, react-memo-counts.js:
@@ -191,7 +185,6 @@ function Counts() {
 }
 
 export default memo(Counts);
-
 ```
 
 Agora o último componente, use-memo-counts.js:
@@ -215,7 +208,6 @@ function UseMemoCounts({ memoizedValue }) {
 }
 
 export default UseMemoCounts;
-
 ```
 
 Tudo criado, vamos a execução! 
@@ -242,8 +234,6 @@ Muito bem, feito isso, isso é um exemplo, componentes e funções simples como 
 
 > O uso de memo ou useMemo tem um custo, esse custo é a comparação entre o componente atual e o novo ou, props atuais e novas.
 
-
-
 ## Diferenças entre memo, useMemo e useCallback
 
 É muito fácil ficar confuso com isso, eu mesmo fiquei e demorei um certo tempo para entender o uso de cada um deles.
@@ -251,3 +241,7 @@ Muito bem, feito isso, isso é um exemplo, componentes e funções simples como 
 * memo: É um componente de ordem superior que podemos usar para agrupar componentes que não queremos renderizar novamente, a menos que as props dentro deles mudem.
 * useMemo: É um React Hook que podemos usar para agrupar funções dentro de um componente. Podemos usar isso para garantir que os valores dentro dessa função sejam recalculados somente quando uma de suas dependências for alterada.
 * useCallback: Mantem a referência de uma função. Usamos quando tempos funções pesadas sendo recriadas em memória desnecessariamente. Interessante ser utilizado em todas as funções internas de um Context API.
+
+
+
+Usei como referencia a publicação: <https://blog.logrocket.com/react-memo-vs-usememo/>
