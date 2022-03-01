@@ -238,10 +238,8 @@ Muito bem, feito isso, isso é um exemplo, componentes e funções simples como 
 
 É muito fácil ficar confuso com isso, eu mesmo fiquei e demorei um certo tempo para entender o uso de cada um deles.
 
-* memo: É um componente de ordem superior que podemos usar para agrupar componentes que não queremos renderizar novamente, a menos que as props dentro deles mudem.
-* useMemo: É um React Hook que podemos usar para agrupar funções dentro de um componente. Podemos usar isso para garantir que os valores dentro dessa função sejam recalculados somente quando uma de suas dependências for alterada.
-* useCallback: Mantem a referência de uma função. Usamos quando tempos funções pesadas sendo recriadas em memória desnecessariamente. Interessante ser utilizado em todas as funções internas de um Context API.
-
-
+* **memo**: É um componente de ordem superior que podemos usar para agrupar componentes que não queremos renderizar novamente, a menos que as props dentro deles mudem.
+* **useMemo**: É um React Hook que podemos usar para agrupar funções dentro de um componente. Podemos usar isso para garantir que os valores dentro dessa função sejam recalculados somente quando uma de suas dependências for alterada. É executada na primeira renderização.
+* **useCallback**: Mantem a referência de uma função. Usamos quando tempos funções pesadas sendo recriadas em memória desnecessariamente. Interessante ser utilizado em todas as funções internas de um Context API. Não é executado na renderização, somente em callback, tipo onClick ou useEffect.
 
 Usei como referencia a publicação: <https://blog.logrocket.com/react-memo-vs-usememo/>
