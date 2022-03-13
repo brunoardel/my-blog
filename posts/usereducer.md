@@ -8,7 +8,7 @@ color: "#EB7728"
 tags:
   - ReactJS
 ---
-O useReducer é um gancho que nos permite gerenciar lógicas de estado complexas. Se você já usou o Redux antes, o conceito de useReducer é bastante semelhante ao Redux. Um redutor basicamente uma instrução switch definindo todas as ações possíveis que um contexto pode executar e atualizando apenas a parte do estado global relacionada a essa ação. Em um redutor, você encapsula o estado e as funções que alteram esse estado em um só lugar.
+O useReducer é um gancho que nos permite gerenciar lógicas de estado complexas. Se você já usou o Redux antes, o conceito de useReducer é bastante semelhante ao Redux. Um redutor é basicamente uma instrução switch definindo todas as ações possíveis que um contexto pode executar e atualizando apenas a parte do estado global relacionada a essa ação. Em um redutor, você encapsula o estado e as funções que alteram esse estado em um só lugar.
 
 Vamos fazer um exemplo muito simples para clarear melhor esse hook na sua cabeça.
 
@@ -80,7 +80,7 @@ export default App;
 
 Dentro de App, você já deve ter identificado o useReducer e alguns funções que executam um tal de dispatch né? Beleza! Vamos lá.
 
-Do useReducer nos extraímos o estado e a função que altera o estado, dentro dele temos o redutor e o valor inicial.
+Do useReducer nos extraímos o estado e a função que altera o estado, dentro dele temos myReducer e o valor inicial.
 
 State, OK, acho que você sabe!
 
@@ -108,7 +108,6 @@ Agora vamos construir o restante. No seu src crie o arquivo products.json conten
     }
   ]
 }
-
 ```
 
 No src crie a pasta components, depois Card, dentro crie o index.jsx com:
@@ -125,7 +124,6 @@ export default function Card({ title, price, onClick }) {
     </div>
   );
 }
-
 ```
 
 No App.css coloque:
@@ -240,7 +238,6 @@ button:hover {
   display: flex;
   justify-content: space-between;
 }
-
 ```
 
 Agora vamos criar nosso redutor, em cima da função App, crie:
